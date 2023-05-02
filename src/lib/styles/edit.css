@@ -1,16 +1,16 @@
 html {
-    text-align: center;
+	text-align: center;
 }
 
 * {
-    margin: 5px;
+	margin: 5px;
 }
 
 textarea {
-    width: 500px;
-    height: 500px;
+	width: 500px;
+	height: 500px;
 }
 
 input {
-    width: 300px;
+	width: 300px;
 }

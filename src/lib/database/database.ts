@@ -1,14 +1,14 @@
-import { createConnection, type Connection } from "mysql2/promise"; 
+import { createConnection, type Connection } from "mysql2/promise";
 import { mysqlConfig } from "$lib/config";
 
 export class Database {
-    protected static async connect(): Promise<Connection> {
+	protected static async connect(): Promise<Connection> {
 		return await createConnection({
 			host: mysqlConfig.host,
 			port: mysqlConfig.port,
 			user: mysqlConfig.username,
 			password: mysqlConfig.password,
-			database: mysqlConfig.database,
+			database: mysqlConfig.database
 		});
 	}
 

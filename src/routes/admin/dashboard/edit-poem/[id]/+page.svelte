@@ -68,7 +68,7 @@
 	<br />
 	<input type="text" placeholder="Album ID" bind:value={inputPoem.albumId} />
 	<p>Explicitní?!</p>
-	<input type="checkbox" bind:value={inputPoem.explicit} />
+	<input type="checkbox" bind:checked={inputPoem.explicit} />
 	<br />
 	<input type="button" value="Upravit" on:click={() => updatePoem(inputPoem)} />
 </form>

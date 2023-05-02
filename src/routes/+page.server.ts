@@ -1,9 +1,9 @@
-import { AlbumDB } from "$lib/database/album"
+import { AlbumDB } from "$lib/database/album";
 
 export const load = async () => {
-    let albums = await AlbumDB.getAlbums();
+	let albums = await AlbumDB.getAlbums();
 
-    return {
-        albums: albums
-    }
-}
+	return {
+		albums: albums
+	};
+};
