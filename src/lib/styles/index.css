@@ -4,6 +4,7 @@
 .albums {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 }
@@ -17,6 +18,7 @@
 	margin: 50px;
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 	transition: box-shadow 0.3s ease-in-out;
+	max-width: 15rem;
 }
 
 .album:hover {
@@ -25,12 +27,14 @@
 }
 
 .album img {
-	max-width: 250px;
+	max-height: 15rem;
+	max-width: 15rem;
+	display: block;
 }
 
 .album-name {
 	text-align: center;
-	margin: 25px;
+	margin: 20px;
 }
 
 .admin-nav {
