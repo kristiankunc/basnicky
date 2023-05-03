@@ -28,5 +28,7 @@
 			</div>
 		</div>
 	{/each}
-	<input type="button" on:click={() => goto("/admin")} value="Admin (zakazany) " />
+</div>
+<div class="admin-nav">
+	<input type="button" on:click={() => goto("/admin")} value="Admin (zakazany)" />
 </div>

@@ -75,6 +75,7 @@
 				<h3>{album.id}</h3>
 				<p>{album.name}</p>
 				<p>{album.image}</p>
+				<input type="button" value="Zobrazit" on:click={() => goto(`/album/${album.id}`)} />
 				<input type="button" value="Editovat" on:click={() => redirectAlbum(album)} />
 				<input type="button" value="Smazat" on:click={() => deleteAlbum(album)} />
 			</div>
@@ -88,9 +89,10 @@
 				<h3>{poem.id}</h3>
 				<p><b>Název</b> - {poem.name}</p>
 				<p><b>Autor</b> - {poem.author}</p>
-				<p>{poem.text}</p>
+				<pre>{poem.text}</pre>
 				<p><b>album</b> - {poem.albumId}</p>
 				<p><b>Přístupnost mládeži</b> - {poem.explicit ? "explicitní" : "normálka"}</p>
+				<input type="button" value="Zobrazit" on:click={() => goto(`/album/${poem.albumId}#${poem.id}`)} />
 				<input type="button" value="Editovat" on:click={() => redirectPoem(poem)} />
 				<input type="button" value="Smazat" on:click={() => deletePoem(poem)} />
 			</div>

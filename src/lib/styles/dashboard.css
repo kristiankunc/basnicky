@@ -12,6 +12,7 @@
 }
 
 .section {
+	text-align: center;
 	margin: 50px;
 }
 .section input {
