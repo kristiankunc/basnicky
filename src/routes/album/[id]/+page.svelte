@@ -32,6 +32,7 @@
 </div>
 <div class="poems">
 	{#each data.poems as poem}
+		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div class="poem" id={poem.id} on:click={() => unblur(poem)}>
 			<h2>{poem.name}</h2>
 			<p><i>Autor: {poem.author}</i></p>
