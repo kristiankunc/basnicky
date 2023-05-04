@@ -3,7 +3,14 @@ import { Database } from "./database";
 
 export class PoemDB extends Database {
 	static async addPoem(name: string, author: string, text: string, albumId: string, explicit: number, weight: number) {
-		await this.query("INSERT INTO poems (name, author, text, albumId, explicit, weight) VALUES (?, ?, ?, ?, ?, ?)", [name, author, text, albumId, explicit, weight]);
+		await this.query("INSERT INTO poems (name, author, text, albumId, explicit, weight) VALUES (?, ?, ?, ?, ?, ?)", [
+			name,
+			author,
+			text,
+			albumId,
+			explicit,
+			weight
+		]);
 	}
 
 	static async getPoems() {
