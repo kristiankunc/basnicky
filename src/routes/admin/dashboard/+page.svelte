@@ -4,7 +4,6 @@
 	import { createAlbum, addPoem } from "$lib/dashboard/add";
 	import type { Album, Poem } from "$lib/types";
 	import { deleteAlbum, deletePoem } from "$lib/dashboard/delete";
-	import { redirect } from "@sveltejs/kit";
 	import { goto } from "$app/navigation";
 
 	let inputAlbum: Album = {
@@ -19,11 +18,9 @@
 		author: "",
 		text: "",
 		albumId: "",
-		explicit: false
+		explicit: false,
+		weight: 0
 	};
-
-	let albumOverlay: HTMLDivElement;
-	let poemOverlay: HTMLDivElement;
 
 	export let data: {
 		albums: Album[];
@@ -65,6 +62,8 @@
 		<p>Explicitní?!</p>
 		<input type="checkbox" bind:checked={inputPoem.explicit} />
 		<br />
+		<input type="number" placeholder="Váha" bind:value={inputPoem.weight} />
+		<br />
 		<input type="button" value="Přidat" on:click={() => addPoem(inputPoem)} />
 	</div>
 
@@ -92,6 +91,7 @@
 				<pre>{poem.text}</pre>
 				<p><b>album</b> - {poem.albumId}</p>
 				<p><b>Přístupnost mládeži</b> - {poem.explicit ? "explicitní" : "normálka"}</p>
+				<p><b>Váha</b> - {poem.weight}</p>
 				<input type="button" value="Zobrazit" on:click={() => goto(`/album/${poem.albumId}#${poem.id}`)} />
 				<input type="button" value="Editovat" on:click={() => redirectPoem(poem)} />
 				<input type="button" value="Smazat" on:click={() => deletePoem(poem)} />
@@ -99,6 +99,3 @@
 		{/each}
 	</div>
 </div>
-
-<div bind:this={albumOverlay} />
-<div bind:this={poemOverlay} />

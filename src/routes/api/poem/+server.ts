@@ -29,8 +29,9 @@ export const POST = (async ({ request, cookies }) => {
 	if (!body.text) {
 		throw new Error("Invalid text");
 	}
+	if (!body.weight) body.weight = 0;
 
-	PoemDB.addPoem(body.name, body.author, body.text, body.albumId, body.explicit ? 1 : 0);
+	PoemDB.addPoem(body.name, body.author, body.text, body.albumId, body.explicit ? 1 : 0, body.weight);
 
 	return new Response(null, {
 		status: 200
@@ -92,7 +93,7 @@ export const PUT = (async ({ request, cookies }) => {
 		throw new Error("Invalid text");
 	}
 
-	PoemDB.updatePoem(body.poemId, body.name, body.author, body.text, body.albumId, body.explicit ? 1 : 0);
+	PoemDB.updatePoem(body.poemId, body.name, body.author, body.text, body.albumId, body.explicit ? 1 : 0, body.weight);
 
 	return new Response(null, {
 		status: 200

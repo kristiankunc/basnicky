@@ -11,4 +11,5 @@ export interface Poem {
 	text: string;
 	albumId: string;
 	explicit: boolean | number;
+	weight: number;
 }

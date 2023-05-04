@@ -1,10 +1,9 @@
-import type { deletePoem } from "$lib/dashboard/delete";
 import type { Poem } from "$lib/types";
 import { Database } from "./database";
 
 export class PoemDB extends Database {
-	static async addPoem(name: string, author: string, text: string, albumId: string, explicit: number) {
-		await this.query("INSERT INTO poems (name, author, text, albumId, explicit) VALUES (?, ?, ?, ?, ?)", [name, author, text, albumId, explicit]);
+	static async addPoem(name: string, author: string, text: string, albumId: string, explicit: number, weight: number) {
+		await this.query("INSERT INTO poems (name, author, text, albumId, explicit, weight) VALUES (?, ?, ?, ?, ?, ?)", [name, author, text, albumId, explicit, weight]);
 	}
 
 	static async getPoems() {
@@ -22,7 +21,7 @@ export class PoemDB extends Database {
 	}
 
 	static async getPoemsAlbum(albumId: string): Promise<Poem[]> {
-		let res = await this.query("SELECT * FROM poems WHERE albumId = ?", [albumId]);
+		let res = await this.query("SELECT * FROM poems WHERE albumId = ? ORDER BY weight ASC", [albumId]);
 		res.forEach((poem: any) => {
 			poem.explicit = poem.explicit == 1;
 		});
@@ -33,13 +32,14 @@ export class PoemDB extends Database {
 		await this.query("DELETE FROM poems WHERE id = ?", [poemId]);
 	}
 
-	static async updatePoem(poemId: string, name: string, author: string, text: string, albumId: string, explicit: number) {
-		await this.query("UPDATE poems SET name = ?, author = ?, text = ?, albumId = ?, explicit = ? WHERE id = ?", [
+	static async updatePoem(poemId: string, name: string, author: string, text: string, albumId: string, explicit: number, weight: number) {
+		await this.query("UPDATE poems SET name = ?, author = ?, text = ?, albumId = ?, explicit = ?, weight = ? WHERE id = ?", [
 			name,
 			author,
 			text,
 			albumId,
 			explicit,
+			weight,
 			poemId
 		]);
 	}

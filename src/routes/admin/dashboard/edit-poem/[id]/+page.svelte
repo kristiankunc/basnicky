@@ -12,11 +12,11 @@
 		author: data.author,
 		text: data.text,
 		albumId: data.albumId,
-		explicit: data.explicit
+		explicit: data.explicit,
+		weight: data.weight
 	};
 
 	export async function updatePoem(poem: Poem) {
-		console.log(poem);
 		if (!poem.id) {
 			throw new Error("Invalid poem id");
 		}
@@ -28,11 +28,12 @@
 			alert("Autor blbe");
 		}
 		if (!poem.albumId) {
-			throw new Error("album id blbe");
+			alert("Album blbe");
 		}
 		if (!poem.text) {
-			throw new Error("text blbe");
+			alert("Text blbe");
 		}
+		if (!poem.weight) poem.weight = 0;
 
 		const res = await fetch(`/api/poem`, {
 			method: "PUT",
@@ -45,7 +46,8 @@
 				author: poem.author,
 				text: poem.text,
 				albumId: poem.albumId,
-				explicit: poem.explicit
+				explicit: poem.explicit,
+				weight: poem.weight
 			})
 		});
 
@@ -69,6 +71,8 @@
 	<input type="text" placeholder="Album ID" bind:value={inputPoem.albumId} />
 	<p>Explicitní?!</p>
 	<input type="checkbox" bind:checked={inputPoem.explicit} />
+	<br />
+	<input type="number" placeholder="Váha" bind:value={inputPoem.weight} />
 	<br />
 	<input type="button" value="Upravit" on:click={() => updatePoem(inputPoem)} />
 </form>

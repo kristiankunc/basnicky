@@ -51,7 +51,8 @@ export async function addPoem(poem: Poem) {
 			author: poem.author,
 			text: poem.text,
 			albumId: poem.albumId,
-			explicit: poem.explicit ? 1 : 0
+			explicit: poem.explicit ? 1 : 0,
+			weight: poem.weight
 		})
 	});
 
