@@ -20,7 +20,7 @@
 
 <div class="header">
 	<h1>{data.album.name}</h1>
-	<img src={data.album.image} alt={data.album.name} />
+	<img src={data.album.image} alt={data.album.name} height="320" width="320" />
 	<div>
 		<h2>Obsah:</h2>
 		{#each data.poems as poem}

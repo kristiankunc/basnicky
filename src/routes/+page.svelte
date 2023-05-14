@@ -22,7 +22,7 @@
 	{#each data.albums as album}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<div class="album" on:click={() => redirectToAlbum(album.id)}>
-			<img src={album.image} alt={album.name} />
+			<img src={album.image} alt={album.name} width="320" height="320" />
 			<div class="album-name">
 				<h3>{album.name}</h3>
 			</div>

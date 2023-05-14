@@ -18,18 +18,11 @@
 	margin: 50px;
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 	transition: box-shadow 0.3s ease-in-out;
-	max-width: 15rem;
 }
 
 .album:hover {
 	cursor: pointer;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
-}
-
-.album img {
-	max-height: 15rem;
-	max-width: 15rem;
-	display: block;
 }
 
 .album-name {
