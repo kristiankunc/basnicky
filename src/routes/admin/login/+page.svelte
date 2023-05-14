@@ -25,6 +25,8 @@
 	}
 </script>
 
+<title>Básničky admin - login</title>
+
 <input type="password" placeholder="Zadej heslo :)" bind:value={password} />
 <button on:click={checkPassword}>Prověřit 🧐</button>
 <br />

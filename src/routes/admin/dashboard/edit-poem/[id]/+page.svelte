@@ -60,6 +60,8 @@
 	}
 </script>
 
+<title>Básničky admin - editovat báseň</title>
+
 <form>
 	<p>{data.id}</p>
 	<input type="text" placeholder="Název" bind:value={inputPoem.name} />

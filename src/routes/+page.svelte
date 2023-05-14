@@ -13,6 +13,8 @@
 	}
 </script>
 
+<title>Vítězné básničky</title>
+
 <div class="header">
 	<h1>Sbírka Básniček</h1>
 

@@ -18,6 +18,8 @@
 	}
 </script>
 
+<title>Básničky - {data.album.name}</title>
+
 <div class="header">
 	<h1>{data.album.name}</h1>
 	<img src={data.album.image} alt={data.album.name} height="320" width="320" />

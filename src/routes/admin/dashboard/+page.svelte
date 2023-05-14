@@ -36,6 +36,8 @@
 	}
 </script>
 
+<title>Básničky admin</title>
+
 <div class="header">
 	<h1>Basničky admin 😎</h1>
 </div>
