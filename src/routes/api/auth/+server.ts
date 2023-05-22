@@ -4,7 +4,6 @@ import { masterPassword } from "$lib/config";
 let requestCache = new Map<string, number>();
 
 export const POST = (async ({ request }) => {
-	// get the user ip
 	let ip = request.headers.get("CF-Connecting-IP") || request.headers.get("X-Forwarded-For") || request.headers.get("X-Real-IP") || "0";
 
 	requestCache.set(ip, (requestCache.get(ip) || 0) + 1);
@@ -14,7 +13,7 @@ export const POST = (async ({ request }) => {
 		setTimeout(() => requestCache.delete(ip), 60000);
 
 		return new Response(null, {
-			status: 429,
+			status: 429
 		});
 	}
 
