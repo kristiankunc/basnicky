@@ -12,14 +12,16 @@
 			password = "";
 			return;
 		}
+		
+		const authRes = await Auth.clientCheck(password);
 
-		if (await Auth.clientCheck(password)) {
+		if (await authRes.success) {
 			res = "Heslo je správné! Přesměrovávám...";
 			password = "";
 
 			goto("/admin/dashboard");
 		} else {
-			res = "Heslo je špatné!";
+			res = `Chyba: ${authRes.message}`;
 			password = "";
 		}
 	}

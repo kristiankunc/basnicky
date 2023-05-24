@@ -13,3 +13,8 @@ export interface Poem {
 	explicit: boolean | number;
 	weight: number;
 }
+
+export interface AuthResult {
+	success: boolean;
+	message: string;
+}
