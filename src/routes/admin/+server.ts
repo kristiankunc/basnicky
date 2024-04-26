@@ -5,8 +5,8 @@ export const GET = (async ({ cookies }) => {
 	let password = cookies.get("password");
 
 	if (password === masterPassword) {
-		throw redirect(302, "/admin/dashboard");
+		redirect(302, "/admin/dashboard");
 	}
 
-	throw redirect(302, "/admin/login");
+	redirect(302, "/admin/login");
 }) satisfies RequestHandler;

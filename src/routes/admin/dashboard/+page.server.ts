@@ -8,7 +8,7 @@ export const load = async ({ cookies }) => {
 	let password = cookies.get("password");
 
 	if (!password || password !== masterPassword) {
-		throw redirect(302, "/admin/login");
+		redirect(302, "/admin/login");
 	}
 
 	let albums = await AlbumDB.getAlbums();
