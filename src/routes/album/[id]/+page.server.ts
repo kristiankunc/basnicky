@@ -9,7 +9,7 @@ export const load = async ({ params }) => {
 		error(404, "Album not found");
 	}
 
-	let poems = PoemDB.getPoemsAlbum(params.id);
+	let poems = await PoemDB.getPoemsAlbum(params.id);
 
 	return {
 		album: album,
