@@ -1,11 +1,14 @@
-import { MASTER_PASSWORD, MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB } from "$env/static/private";
+import dotenv from "dotenv";
 
-export const masterPassword = MASTER_PASSWORD;
+dotenv.config();
+
+
+export const masterPassword = process.env.MASTER_PASSWORD;
 
 export const mysqlConfig = {
-	host: MYSQL_HOST,
-	port: MYSQL_PORT,
-	username: MYSQL_USER,
-	password: MYSQL_PASSWORD,
-	database: MYSQL_DB
+	host: process.env.MYSQL_HOST,
+	port: process.env.MYSQL_PORT,
+	username: process.env.MYSQL_USER,
+	password: process.env.MYSQL_PASSWORD,
+	database: process.env.MYSQL_DATABASE
 };
